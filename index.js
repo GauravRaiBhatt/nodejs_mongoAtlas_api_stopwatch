@@ -6,6 +6,13 @@ app.get('/', (req, res) => {
   res.send('Hello World! from ',process.env.PORT)
 })
 
+app.get('/dev', (req,res)=>{
+    res.json({
+        type:'JSON',
+        message:'message from /dev endpoint'
+    })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
