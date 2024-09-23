@@ -25,4 +25,4 @@ jobs:
       - name: Pull Image from docker hub
         run: docker pull gauravraibhatt/nodejs_mongoatlas_api_stopwatch:latest
       - name: Run docker container
-        run: docker run -d -p ${{ secrets.DOCKER_PASSWORD }} 4000:4000 --name nodejs-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD }}' gauravraibhatt/nodejs_mongoatlas_api_stopwatch
+        run: docker run -d -p 4000:4000 --name nodejs-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD }}' gauravraibhatt/nodejs_mongoatlas_api_stopwatch
