@@ -1,7 +1,7 @@
-From node:alpine3.19
+From node:alpine3.18
 WORKDIR /app
 COPY package.json ./
-RUN npm i
+RUN npm install
 COPY . .
 EXPOSE 8000
 CMD [ "npm", "run", "start" ]

@@ -15,6 +15,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Build Docker Image
         run: docker build -t gauravraibhatt/nodejs_mongoatlas_api_stopwatch .
+        # run: docker build . --file ../../Dockerfile --tag gauravraibhatt/nodejs_mongoatlas_api_stopwatch:latest
       - name: Publish Image to Docker hub
         run: docker push gauravraibhatt/nodejs_mongoatlas_api_stopwatch:latest
   
