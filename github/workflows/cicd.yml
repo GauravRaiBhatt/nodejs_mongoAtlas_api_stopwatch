@@ -1,0 +1,23 @@
+name: Deploy Node-MogoDB API application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Login to Docker hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD}}
+      - name: Build Docker Image
+        run: docker build -t gauravraibhatt/nodejs_mongoatlas_api_stopwatch
+      - name: Publish Image to Docker hub
+        run: docker push gauravraibhatt/nodejs_mongoatlas_api_stopwatch:latest
+  
+  deploy:
+    needs: build
+    runs-on: self-hosted
