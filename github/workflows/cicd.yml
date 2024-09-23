@@ -21,3 +21,8 @@ jobs:
   deploy:
     needs: build
     runs-on: self-hosted
+    steps:
+      - name: Pull Image from docker hub
+        run: docker pull gauravraibhatt/nodejs_mongoatlas_api_stopwatch:latest
+      - name: Run docker container
+        run: docker run -d -p ${{ secrets.DOCKER_PASSWORD }} 8000:8000 --name nodejs-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD }}' gauravraibhatt/nodejs_mongoatlas_api_stopwatch
