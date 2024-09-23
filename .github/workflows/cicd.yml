@@ -22,6 +22,8 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
+      - name: Remove old docker image
+        run: docker rm -f nodejs-container
       - name: Pull Image from docker hub
         run: docker pull gauravraibhatt/nodejs_mongoatlas_api_stopwatch:latest
       - name: Run docker container
