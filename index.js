@@ -4,7 +4,7 @@ const app = express()
 const port = process.env.PORT || 4000
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello World! from ',port)
+  res.status(200).send(`Hello World! from port : ${port}`)
 })
 
 app.get('/test',(req,res)=>{
